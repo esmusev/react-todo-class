@@ -23,7 +23,6 @@ class TodoList extends React.Component {
     }
 
     drag = e => {
-        e.preventDefault();
         e.stopPropagation();
         this.startX = e.clientX;
         this.itemId = e.target.id;
@@ -41,7 +40,6 @@ class TodoList extends React.Component {
     };
 
      drop = e => {
-         e.stopPropagation();
          e.preventDefault();
          this.lastX = e.clientX;
          this.sortTodos(this.itemId, this.targetId)
@@ -53,7 +51,6 @@ class TodoList extends React.Component {
     };
 
     handleChange = event => {
-        event.preventDefault();
         let newValue = this.state.value;
         newValue[event.target.name] = event.target.value
         this.setState(prev => ({...prev, value: newValue }))};
